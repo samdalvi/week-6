@@ -102,16 +102,13 @@ class Genius:
         Raises:
             Exception: If no artist is found or API request fails
         """
-        # Step 1: Search for the artist
         search_results = self._search_artist(search_term)
         
-        # Step 2: Extract the artist ID
         artist_id = self._extract_artist_id(search_results)
         
         if not artist_id:
             raise Exception(f"No artist found for search term: {search_term}")
         
-        # Step 3: Get artist information using the artist ID
         artist_endpoint = f"/artists/{artist_id}"
         artist_data = self._make_request(artist_endpoint)
         
@@ -135,11 +132,9 @@ class Genius:
         
         for search_term in search_terms:
             try:
-                # Get artist data
                 artist_data = self.get_artist(search_term)
                 artist_info = artist_data.get("response", {}).get("artist", {})
-                
-                # Extract relevant information
+        
                 result = {
                     "search_term": search_term,
                     "artist_name": artist_info.get("name", ""),
@@ -150,7 +145,6 @@ class Genius:
                 results.append(result)
                 
             except Exception as e:
-                # If an error occurs, add a row with empty/default values
                 print(f"Error fetching data for '{search_term}': {str(e)}")
                 result = {
                     "search_term": search_term,
@@ -160,7 +154,6 @@ class Genius:
                 }
                 results.append(result)
         
-        # Convert to DataFrame
         df = pd.DataFrame(results)
         
         return df
