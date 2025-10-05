@@ -1,7 +1,7 @@
 # test_exercises.py
 from apputil import Genius
 
-# Replace with your actual Genius API access token
+
 ACCESS_TOKEN = "RoGpRxR_Cb4BeU2nE1tlsqQTUIxLybAr-K5aayPva-VPbzgTqVa4BGvcvXUPkIOy"
 
 # Exercise 1: Test initialization
