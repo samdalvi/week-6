@@ -70,13 +70,11 @@ class Genius:
             int or None: The artist ID if found, None otherwise
         """
         try:
-            # Get the first hit from search results
             hits = search_data.get("response", {}).get("hits", [])
             
             if not hits:
                 return None
             
-            # Extract the primary artist from the first hit
             first_hit = hits[0]
             primary_artist = first_hit.get("result", {}).get("primary_artist", {})
             
@@ -163,11 +161,11 @@ class Genius:
 def test_genius_class():
     """
     Test function to demonstrate the Genius class functionality.
-    Replace 'YOUR_ACCESS_TOKEN' with your actual Genius API access token.
+    
     """
     
     # Initialize the Genius object
-    access_token = "YOUR_ACCESS_TOKEN"  # Replace with your actual token
+    access_token = "RoGpRxR_Cb4BeU2nE1tlsqQTUIxLybAr-K5aayPva-VPbzgTqVa4BGvcvXUPkIOy"  
     genius = Genius(access_token=access_token)
     
     print("Testing Exercise 1: Initialization")
@@ -196,7 +194,6 @@ def test_genius_class():
 
 
 if __name__ == "__main__":
-    # Run tests if this file is executed directly
     print("Genius API Class Implementation Test")
     print("=" * 40)
     test_genius_class()
